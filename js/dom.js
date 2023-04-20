@@ -51,36 +51,9 @@ const showCards= (stays)=>{
         $cards_container.appendChild(createNewCard(stay))
     })
 }
-const showGuestOptions = (container)=>{
-    const $option_modal_by_input = document.getElementById(container);
-    $option_modal_by_input.innerHTML ="";
-    let $container_options_guest_control = document.createElement("div");
-    $container_options_guest_control.className = "container col-4";
-    $container_options_guest_control.innerHTML = 
-    `<ul class="list-group" id="options-guests-xl">
-        <div class="list-group-item border-0 mb-5">
-            <p class="gray-lighter-text"><span class="fw-bold gray-darker-text">Adults</span>
-            <br>Ages 13 or above
-            </p>
-            <div class="input-group control-guest">
-                <input class="form-control input-group-item w-5" type="button" value="-">
-                <span class="input-group-text">0</span>
-                <input class="form-control input-group-item w-5" type="button" value="+">
-            </div>
-        </div>
-        <div class="list-group-item border-0">
-            <p class="gray-lighter-text"><span class="fw-bold gray-darker-text">Children</span>
-            <br>Ages 2-12
-            </p>
-            <div class="input-group control-guest">
-                <input class="form-control input-group-item w-5" type="button" value="-">
-                <span class="input-group-text">0</span>
-                <input class="form-control input-group-item w-5" type="button" value="+">
-            </div>
-        </div>
-    </ul>`;
-    $option_modal_by_input.appendChild($container_options_guest_control);
-}
+const showGuestOptions = (container)=>{}
+
+
 export default{
     showCards,showLocations,showGuestOptions
 }

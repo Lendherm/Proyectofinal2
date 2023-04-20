@@ -3,36 +3,34 @@ import dom from './dom.js';
 
 const stays = await data.getData();
 
-// Barra de navegación de inicio
+
 const $location_search_bar = document.getElementById("location");
 const $guest_search_bar = document.getElementById("guests");
 const $modal_search =document.getElementById("modal_search");
 
-// Modal container para vista phone
+
 const $locationInputPhone = document.getElementById("LocationfloatingInput");
 const $guestInputPhone = document.getElementById("GuestfloatingInput");
 const $search_buttonPhone  = document.getElementById("phone-search-button");
 
-//Modal container para vista Desktop
+
 const $locationInput = document.getElementById("locationInput");
 const $guestInput = document.getElementById("guestInput");
 const $search_button  = document.getElementById("search-button");
 
 console.log($search_button)
 console.log($search_buttonPhone)
-// Valores para las busquedas
+
 let location_text = "";
 let number_guest = 0;
 
 
-//Activar el menu de busqueda al enfocar en cualquiera de estos elementos. Esto según la documentacion
-//de Boostrap
+
 $modal_search.addEventListener('shown.bs.modal',e=>{
     $location_search_bar.focus()
     $guest_search_bar.focus()
     
 })
-//Eventos para barra Phone
 $guestInputPhone.addEventListener('focusin', e=>{
     $guestInputPhone.value = "";
     dom.showGuestOptions("options-xs");
@@ -56,7 +54,6 @@ $locationInputPhone.addEventListener('keyup', e=>{
     $location_search_bar.value = $locationInputPhone.value;
 });
 
-//Eventos para barra Desktop
 $locationInput.addEventListener('focusin', e=>{
     $locationInput.value = "";
     dom.showLocations("options-xl",data.getDataLocations(stays));
