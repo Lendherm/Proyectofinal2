@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="icon" href="./img/triangleLogo.png" type="image/png">
   <!-- Link de Fuentes de Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,42 +26,112 @@
 
   <!-- Link de CSS -->
   <link rel="stylesheet" href="./css/styles.css">
-
-  
-
   <script src="./js/app.js" type="module" defer></script>
-  <title>Document</title>
+  <title>Windbnb</title>
 </head>
 
 <body class="container">
-  <header class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-lg-4 mt-3 gap-5">
+  <!-- Inicio de la cabecera con el logo y la barra de navegación -->
+  <header class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-lg-4 mt-3 gap-5 ">
     <div class="d-flex align-self-start align-self-md-center">
       <img src="./img/logo.png" alt="">
     </div>
 
-    <article class="d-flex rounded-4">
-      <p class="p-3 m-0 cursor-text">Add location</p>
-      <p class="p-3 m-0 border-start border-end border-light-subtle user-select-none">Add guests</p>
-      <!-- Icono Search de google Icons -->
-      <span class="material-symbols-outlined text-danger p-3 pointer">
-        search
-      </span>
+    <article class="d-flex input-group mw-lg-25 row search-bar mw-75">
+      <input type="text" class="fs-4 rounded-start-4 col-6 form-control text-center w-25" placeholder="Add location"
+        id="location" data-bs-toggle="modal" data-bs-target="#modal_search" readonly>
+      <input type="text" class="fs-4 col-3 form-control text-center" placeholder="Add guests" id="guests"
+        data-bs-toggle="modal" data-bs-target="#modal_search" readonly>
+      <span
+        class="rounded-end-4 col-2 fs-3 material-symbols-outlined bg-white text-danger p-3 pe-1 pointer input-group-text">search</span>
     </article>
+    <!-- Inicio de barra de navegación para los dos dispositivos -->
+    <div class="modal" id="modal_search">
+      <div class="modal-dialog modal-fullscreen h-75">
+        <!--Menu para telefonos-->
+        <div class="modal-content d-lg-none">
+          <div class="modal-header border-0">
+            <p class="modal-title fw-bold">Edit your search</p>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="form-floating">
+                <input type="email" class="inputs-bar form-control fs-5 rounded-4 rounded-bottom-0 gray-darker-text"
+                  id="LocationfloatingInput">
+                <label for="LocationfloatingInput" class="gray-darker-text fw-bold">LOCATION</label>
+              </div>
+              <div class="form-floating">
+                <input type="email" class="inputs-bar form-control fs-5 rounded-4 rounded-top-0 gray-darker-text"
+                  id="GuestfloatingInput">
+                <label for="GuestfloatingInput" class="gray-darker-text fw-bold">GUESTS</label>
+              </div>
+              <div class="container">
+                <div class="list-group mt-5 row" id="options-xs">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <div class="col p-0 row justify-content-center mb-4">
+              <button id="phone-search-button" type="button" class="btn bg-pink-danger p-3 fs-4 rounded-4 col-4"
+                data-bs-dismiss="modal">
+                <span class="material-symbols-outlined text-white search-icon">search</span>
+                <span class="mb-1 search-text-button text-white">Search</span></button>
+            </div>
+          </div>
+        </div>
+        <!--Menu para Laptops y computadoras-->
+        <div class="modal-content d-none d-lg-block">
+          <div class="modal-body">
+            <div class="container">
+              <div class="input-group rounded-4 border row">
+                <div class="form-floating input-group-item col p-0 fs-4">
+                  <input type="email"
+                    class="inputs-bar form-control rounded-4 border-0 focus-ring fs-5 input gray-darker-text"
+                    style="--bs-focus-ring-color: #333333; --bs-focus-ring-width: 1px" id="locationInput">
+                  <label for="locationInput fs-4" class="gray-darker-text">LOCATION</label>
+                </div>
+                <div class="form-floating input-group-item col p-0">
+                  <input type="email"
+                    class="inputs-bar form-control rounded-4 border-0 focus-ring gray-darker-text fs-5"
+                    style="--bs-focus-ring-color: #333333; --bs-focus-ring-width: 1px" id="guestInput">
+                  <label for="guestInput" class="gray-darker-text">GUESTS</label>
+                </div>
+                <div class="col p-0 row justify-content-center">
+                  <button id="search-button" type="button"
+                    class="btn bg-pink-danger px-3 fs-5 rounded-pill rounded-4 col-4" data-bs-dismiss="modal"><span
+                      class="material-symbols-outlined text-white search-icon search-button">search</span><span
+                      class="mb-1 search-text-button text-white search-button">Search</span></button>
+                </div>
+              </div>
+              <div class="container">
+                <div class="list-group mt-5 row" id="options-xl">
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Final de barra de navegación para los dos dispositivos -->
+    <!-- Final de la cabecera -->
   </header>
   <main>
-    <div class="d-flex mt-5 justify-content-between">
-      <h1 class="fs-3">Stays in 
+    <div class="d-flex mt-5 justify-content-between mb-5">
+      <h1 class="fs-1 mx-2 fw-bold">Stays in Finland
         <!-- Aquí va el lugar -->
         <span id="place"></span>
       </h1>
-      <p><span id="stays"></span> Stays</p>
+      <p class="mx-3 fs-bold fs-4 text-gray-secondary"><span id="stays" class="text-gray-secondary"></span>+12 Stays</p>
     </div>
 
     <section class="container text-center">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" id="cards-container">
 
-        <!-- Aqui van los cards, cada uno debe llevar la clase 'col' -->
-        
       </div>
     </section>
   </main>
